@@ -6,6 +6,7 @@ import Modal from '../components/Modal';
 import { useForm } from 'react-hook-form';
 import { collection, addDoc } from 'firebase/firestore';
 import { db } from '../assets/firebase';
+import dayjs from 'dayjs';
 
 export default function Members() {
   const members = useCollection('members');
@@ -41,6 +42,15 @@ export default function Members() {
         </span>
       ),
     },
+    {
+      header: 'Expires',
+      accessor: 'startedAt',
+      cell: (row) => {
+        const end = dayjs(row.startedAt).add(row.duration, 'month');
+        const left = Math.ceil(end.diff(dayjs(), 'day', true));
+        return left <= 0 ? <span className="text-red-400">Expired</span> : <span>{left} d</span>;
+      }
+    }
   ];
 
   return (
@@ -53,7 +63,8 @@ export default function Members() {
         >
           + Add Member
         </button>
-      </div>
+      </div>      
+
       <Table columns={columns} data={members} />
 
       <Modal open={open} onClose={() => setOpen(false)}>

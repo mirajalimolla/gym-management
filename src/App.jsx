@@ -9,6 +9,7 @@ import Payments from './pages/Payments';
 import Attendance from './pages/Attendance';
 import Settings from './pages/Settings';
 import Login from './pages/Login';
+import MemberProfile from './pages/MemberProfile';
 // import Register from './pages/Register';
 
 function Protected({ children }) {
@@ -35,6 +36,7 @@ export default function App() {
                     <Route path="payments" element={<Payments />} />
                     <Route path="attendance" element={<Attendance />} />
                     <Route path="settings" element={<Settings />} />
+                    <Route path="members/:id" element={<MemberProfile />} />
                   </Routes>
                 </Layout>
               </Protected>
