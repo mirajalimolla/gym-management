@@ -31,12 +31,12 @@ export default function App() {
                 <Layout>
                   <Routes>
                     <Route index element={<Dashboard />} />
-                    <Route path="members" element={<Members />} />
-                    <Route path="plans" element={<Plans />} />
-                    <Route path="payments" element={<Payments />} />
-                    <Route path="attendance" element={<Attendance />} />
-                    <Route path="settings" element={<Settings />} />
-                    <Route path="members/:id" element={<MemberProfile />} />
+                    <Route path="/members" element={<Members />} />
+                    <Route path="/plans" element={<Plans />} />
+                    <Route path="/payments" element={<Payments />} />
+                    <Route path="/attendance" element={<Attendance />} />
+                    <Route path="/settings" element={<Settings />} />
+                    <Route path="/members/:id" element={<MemberProfile />} />
                   </Routes>
                 </Layout>
               </Protected>
