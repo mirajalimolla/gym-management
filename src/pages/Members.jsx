@@ -59,7 +59,7 @@ export default function Members() {
         <h2 className="text-2xl font-bold">Members</h2>
         <button
           onClick={() => setOpen(true)}
-          className="px-4 py-2 rounded bg-primary-600 hover:bg-primary-700"
+          className="px-4 py-2 rounded bg-gray-800 text-white cursor-pointer hover:bg-gray-700"
         >
           + Add Member
         </button>
@@ -68,7 +68,7 @@ export default function Members() {
       <Table columns={columns} data={members} />
 
       <Modal open={open} onClose={() => setOpen(false)}>
-        <form onSubmit={handleSubmit(onAdd)} className="space-y-3">
+        <form onSubmit={handleSubmit(onAdd)} className="text-white space-y-3">
           <input
             {...register('name', { required: true })}
             placeholder="Name"

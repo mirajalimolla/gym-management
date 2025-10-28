@@ -24,7 +24,7 @@ export default function Login() {
     <div className="min-h-screen flex items-center justify-center">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className="bg-gray-800 rounded-lg p-6 w-full max-w-sm"
+        className="bg-gray-800 text-white rounded-lg p-6 w-full max-w-sm"
       >
         <h2 className="text-xl font-bold mb-4">Login</h2>
         {err && <p className="text-red-400 mb-2">{err}</p>}
@@ -40,8 +40,8 @@ export default function Login() {
           placeholder="Password"
           className="w-full mb-4 px-3 py-2 rounded bg-gray-700"
         />
-        <button className="w-full bg-primary-600 hover:bg-primary-700 py-2 rounded">
-          Sign In
+        <button className="w-1/2 m-auto block font-semibold cursor-pointer bg-gray-700 py-2 rounded">
+          Log In
         </button>
       </form>
     </div>

@@ -37,7 +37,7 @@ export default function Payments() {
         <select
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="px-3 py-2 rounded bg-gray-800"
+          className="px-3 py-2 rounded text-white bg-gray-800"
         >
           <option value="all">All</option>
           <option value="paid">Paid</option>

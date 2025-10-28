@@ -3,6 +3,7 @@ import StatCard from '../components/StatCard';
 import Chart from '../components/Chart';
 import { useCollection } from '../hooks/useCollection';
 import { MdPeople, MdAttachMoney, MdTimer } from 'react-icons/md';
+import TopBar from '../components/TopBar';
 
 export default function Dashboard() {
   const members = useCollection('members');
@@ -14,8 +15,7 @@ export default function Dashboard() {
 
   return (
     <div className="space-y-6">
-      <h1 className="text-2xl md:text-3xl font-bold">Dashboard</h1>
-
+      <TopBar />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <StatCard label="Total Members" value={members.length} icon={<MdPeople />} />
         <StatCard label="Active" value={active} icon={<MdTimer />} />
