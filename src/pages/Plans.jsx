@@ -32,10 +32,10 @@ export default function Plans() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         {plans.map((p) => (
-          <div key={p.id} className="bg-gray-800 rounded-lg p-4 relative">
+          <div key={p.id} className="bg-gray-800 text-white rounded-lg p-4 relative">
             <button
               onClick={() => onDel(p.id)}
-              className="absolute top-2 right-2 text-red-400 hover:text-red-300"
+              className="absolute top-2 right-3 text-red-400 hover:text-red-300"
             >
               ✕
             </button>

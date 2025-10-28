@@ -26,7 +26,7 @@ export default function Chart({ title, labels, dataPoints }) {
     ],
   };
   return (
-    <div className="bg-gray-800 rounded-lg p-4">
+    <div className="bg-gray-800 text-white rounded-lg p-4">
       <h3 className="mb-3 font-semibold">{title}</h3>
       <Line data={data} />
     </div>

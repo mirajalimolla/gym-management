@@ -26,11 +26,11 @@ export default function Attendance() {
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="Search member..."
-        className="w-full max-w-md mb-4 px-3 py-2 rounded bg-gray-800"
+        className="w-full max-w-md mb-4 px-3 py-2 rounded bg-gray-800 text-white"
       />
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {filtered.map((m) => (
-          <div key={m.id} className="bg-gray-800 rounded-lg p-4 flex items-center justify-between">
+          <div key={m.id} className="bg-gray-800 text-white rounded-lg p-4 flex items-center justify-between">
             <div>
               <p className="font-semibold">{m.name}</p>
               <p className="text-sm text-gray-400">{m.phone}</p>

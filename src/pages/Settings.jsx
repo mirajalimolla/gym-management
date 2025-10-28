@@ -23,23 +23,23 @@ export default function Settings() {
         <input
           {...register('gymName')}
           placeholder="Gym Name"
-          className="w-full px-3 py-2 rounded bg-gray-800"
+          className="w-full px-3 py-2 rounded bg-gray-800 text-white"
         />
         <input
           {...register('phone')}
           placeholder="Phone"
-          className="w-full px-3 py-2 rounded bg-gray-800"
+          className="w-full px-3 py-2 rounded bg-gray-800 text-white"
         />
         <input
           {...register('address')}
           placeholder="Address"
-          className="w-full px-3 py-2 rounded bg-gray-800"
+          className="w-full px-3 py-2 rounded bg-gray-800 text-white"
         />
         <div>
-          <label className="block mb-1 text-sm">Logo</label>
-          <input type="file" className="w-full text-sm" />
+          <label className="block mb-1 font-bold text-lg">Set your Logo</label>
+          <input type="file" className="border w-fit p-2 text-sm" />
         </div>
-        <button className="px-4 py-2 rounded bg-primary-600 hover:bg-primary-700">Save</button>
+        <button className="px-4 py-2 rounded bg-gray-800 text-white font-bold cursor-pointer hover:bg-gray-700">Save</button>
         {msg && <span className="text-green-400 ml-2">{msg}</span>}
       </form>
     </div>
