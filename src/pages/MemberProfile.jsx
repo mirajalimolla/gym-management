@@ -46,7 +46,7 @@ export default function MemberProfile() {
   return (
     <div className="max-w-4xl mx-auto p-4 space-y-6">
       {/*  PHOTO  */}
-      <div className="flex flex-col md:flex-row gap-6 items-center md:items-start">
+      <div className="flex flex-col md:flex-row gap-6 bg-gray-800 text-white p-4 rounded-2xl items-center md:items-start">
         <div className="relative">
           <img
             src={member.photoURL || `https://i.pravatar.cc/150?u=${id}`}
@@ -75,7 +75,7 @@ export default function MemberProfile() {
       </div>
 
       {/*  MEMBERSHIP STATUS CARD  */}
-      <div className="bg-gray-800 rounded-2xl p-4 space-y-3">
+      <div className="bg-gray-800 text-white rounded-2xl p-4 space-y-3">
         <div className="flex items-center justify-between">
           <span className="font-semibold">Membership expires</span>
           <span className={`px-3 py-1 rounded-full text-xs ${left <= 0 ? 'bg-red-600' : 'bg-color-primary-600'}`}>
@@ -96,7 +96,7 @@ export default function MemberProfile() {
       </div>
 
       {/*  PAYMENT HISTORY  (reuse existing table) */}
-      <h2 className="text-xl font-semibold mt-6">Payment history</h2>
+      <h2 className="text-xl font-semibold mt-6 bg-gray-800 text-white p-4 rounded-2xl">Payment history</h2>
       <PaymentsTable memberId={id} />
     </div>
   );

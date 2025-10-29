@@ -21,7 +21,7 @@ export default function BottomNav() {
           to={to}
           className={({ isActive }) =>
             `flex-1 flex flex-col items-center py-2 text-xs
-            ${isActive ? 'text-color-primary-400' : 'text-gray-400'}`
+            ${isActive ? 'text-blue-400' : 'text-gray-400'}`
           }
         >
           <Icon className="text-xl mb-1" /> {label}

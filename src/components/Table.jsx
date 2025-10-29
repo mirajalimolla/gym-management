@@ -56,11 +56,7 @@ export default function Table({ data }) {
       header: '',
       accessor: 'id',
       cell: (row) => (
-        <button
-          onClick={() => deleteMember(row.id)}
-          className="text-red-400 hover:text-red-300 text-xl"
-          title="Delete member"
-        >
+        <button onClick={() => deleteMember(row.id)} className="text-red-400 cursor-pointer hover:text-red-300 text-xl" title="Delete member" >
           <MdDelete />
         </button>
       ),
@@ -69,7 +65,7 @@ export default function Table({ data }) {
 
   return (
     <div className="overflow-x-auto">
-      <table className="min-w-full text-sm">
+      <table className="min-w-full text-sm rounded-3xl">
         <thead className="bg-gray-800 text-gray-300">
           <tr>
             {columns.map((c) => (
@@ -81,10 +77,12 @@ export default function Table({ data }) {
         </thead>
         <tbody className="divide-y divide-gray-700">
           {data.map((row) => (
-            <tr key={row.id} className="hover:bg-gray-800">
+            <tr key={row.id} className="hover:bg-gray-800 hover:text-white">
               {columns.map((c) => (
                 <td key={c.accessor} className="px-4 py-3 align-middle">
-                  {c.cell ? c.cell(row) : row[c.accessor]}
+                  {/* {console.log(row[c.accessor])} */}
+                  {/* {console.log("This is only startedAt", row['startedAt'])} */}
+                  {c.cell ? c.cell(row) : row[c.accessor] || row['startedAt']}
                 </td>
               ))}
             </tr>
