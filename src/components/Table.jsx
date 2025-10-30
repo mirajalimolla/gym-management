@@ -31,7 +31,8 @@ export default function Table({ data }) {
       ),
     },
     { header: 'Phone', accessor: 'phone' },
-    { header: 'Joined', accessor: 'joinedAt' },
+    { header: 'Joined', accessor: 'joinedAt', cell: (r) => dayjs(r.joinedAt).format('DD,MMM YYYY') },
+    { header: 'Expires', accessor: 'expiresAt', cell: (r) => dayjs(r.expiresAt).format('DD,MMM YYYY') },
     {
       header: 'Status',
       accessor: 'status',
@@ -53,7 +54,7 @@ export default function Table({ data }) {
       },
     },
     {
-      header: '',
+      header: 'Delete',
       accessor: 'id',
       cell: (row) => (
         <button onClick={() => deleteMember(row.id)} className="text-red-400 cursor-pointer hover:text-red-300 text-xl" title="Delete member" >
@@ -80,8 +81,6 @@ export default function Table({ data }) {
             <tr key={row.id} className="hover:bg-gray-800 hover:text-white">
               {columns.map((c) => (
                 <td key={c.accessor} className="px-4 py-3 align-middle">
-                  {/* {console.log(row[c.accessor])} */}
-                  {/* {console.log("This is only startedAt", row['startedAt'])} */}
                   {c.cell ? c.cell(row) : row[c.accessor] || row['startedAt']}
                 </td>
               ))}

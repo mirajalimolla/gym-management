@@ -26,7 +26,7 @@ export default function Members() {
   
   /* ----------  ADD MEMBER  ---------- */
   const onAdd = async (data) => {
-    if (!data.planId) return alert('Please choose a plan');
+    // if (!data.planId) return alert('Please choose a plan');
     
     const batch = writeBatch(db);
     const planRef = doc(db, 'plans', data.planId);
@@ -141,17 +141,15 @@ export default function Members() {
             className="w-full px-3 py-2 rounded bg-gray-800"
           />
           <select
-            {...register('planId', { required: true })}
+            {...register('planId', {required: true})}
             className="w-full px-3 py-2 rounded bg-gray-800"
           >
             <option value="">Choose plan</option>
-            {plans
-              .filter((p) => Number(p.price) > 0 && Number(p.months) > 0)
-              .map((p) => (
-                <option key={p.id} value={p.id}>
+            {plans.filter((p) => Number(p.price) > 0 && Number(p.months) > 0).map((p) => (
+              <option key={p.id} value={p.id}>
                   {p.name} (₹{p.price} / {p.months} mo)
-                </option>
-              ))}
+              </option>
+            ))}
           </select>
 
           <div className="flex gap-2">
