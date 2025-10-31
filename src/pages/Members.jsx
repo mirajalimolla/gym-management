@@ -26,8 +26,8 @@ export default function Members() {
   
   /* ----------  ADD MEMBER  ---------- */
   const onAdd = async (data) => {
-    // if (!data.planId) return alert('Please choose a plan');
-    
+    if (!data.planId) return alert('Please choose a plan');
+
     const batch = writeBatch(db);
     const planRef = doc(db, 'plans', data.planId);
     const planSnap = await getDoc(planRef);

@@ -4,7 +4,7 @@ import { useCollection } from '../hooks/useCollection';
 export default function PaymentsTable({ memberId }) {
   const pays = useCollection('payments').filter((p) => p.memberId === memberId);
 
-  if (!pays.length) return <p className="text-sm text-gray-400">No payments yet.</p>;
+  if (!pays.length) return <p className="text-sm text-gray-800">No payments yet.</p>;
 
   return (
     <div className="overflow-x-auto">

@@ -86,7 +86,7 @@ export default function MemberProfile() {
         {/*  PROGRESS BAR  */}
         <div className="w-full bg-gray-700 rounded-full h-3">
           <div
-            className="bg-color-primary-500 h-3 rounded-full transition-all"
+            className="bg-gray-400 h-3 rounded-full transition-all"
             style={{ width: `${percent}%` }}
           />
         </div>
