@@ -1,9 +1,9 @@
 // src/pages/MemberProfile.jsx
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { NavLink, useParams } from 'react-router-dom';
 import { doc, onSnapshot, updateDoc } from 'firebase/firestore';
 import { db } from '../assets/firebase';
-import { MdCameraAlt } from 'react-icons/md';
+import { MdArrowLeft, MdCameraAlt } from 'react-icons/md';
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
 import { uploadPhoto } from '../helpers/uploadPhoto';
@@ -44,7 +44,12 @@ export default function MemberProfile() {
   const percent = Math.max(0, Math.min(100, (left / (member.duration * 30)) * 100));
 
   return (
-    <div className="max-w-4xl mx-auto p-4 space-y-6">
+    <div className="relative max-w-4xl mx-auto p-4 space-y-6">
+      <NavLink to={'/members'}>
+        <div className='absolute left-0 top-0 rounded-2xl text-white bg-gray-800 hover:bg-gray-700 cursor-pointer'>
+          <MdArrowLeft size={45} />
+        </div>
+      </NavLink>
       {/*  PHOTO  */}
       <div className="flex flex-col md:flex-row gap-6 bg-gray-800 text-white p-4 rounded-2xl items-center md:items-start">
         <div className="relative">
