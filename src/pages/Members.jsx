@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { collection, doc, addDoc, writeBatch, serverTimestamp, increment, getDoc, deleteDoc } from 'firebase/firestore';
+import { useLoader } from '../context/LocaderContext';
 import { db } from '../assets/firebase';
 import { useCollection } from '../hooks/useCollection';
 import Modal from '../components/Modal';
@@ -17,12 +18,18 @@ async function deleteMember(id) {
 
 
 export default function Members() {
+  const {setLoading} = useLoader();
+  
   const [open, setOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
-  const members = useCollection('members');
-  const plans = useCollection('plans');
+  const members = useCollection('members', {setLoading});
+  const plans = useCollection('plans', {setLoading});
   const memberRef = doc(collection(db, 'members')); 
   const payRef = doc(collection(db, 'payment')); 
+
+  // Setting up the Loader
+  const isLoading = members.length && plans.length;
+  setLoading(!isLoading);
   
   /* ----------  ADD MEMBER  ---------- */
   const onAdd = async (data) => {
