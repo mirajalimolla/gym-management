@@ -1,14 +1,14 @@
 // src/pages/Payments.jsx
 import { useState } from 'react';
 import { useCollection } from '../hooks/useCollection';
+import FullPageLoading from '../components/FullPageLoading';
 import Table from '../components/Table';
 
 export default function Payments() {
   const payments = useCollection('payments');
   const [filter, setFilter] = useState('all'); // all | paid | unpaid
 
-  const filtered =
-    filter === 'all' ? payments : payments.filter((p) => p.status === filter);
+  const filtered = filter === 'all' ? payments : payments.filter((p) => p.status === filter);
 
   const columns = [
     { header: 'Member', accessor: 'memberName' },

@@ -1,9 +1,9 @@
 // src/pages/Members.jsx
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { collection, doc, addDoc, writeBatch, serverTimestamp, increment, getDoc, deleteDoc } from 'firebase/firestore';
-import { useLoader } from '../context/LocaderContext';
+import FullPageLoading from '../components/FullPageLoading';
 import { db } from '../assets/firebase';
 import { useCollection } from '../hooks/useCollection';
 import Modal from '../components/Modal';
@@ -16,21 +16,17 @@ async function deleteMember(id) {
   await deleteDoc(doc(db, 'members', id));
 }
 
-
 export default function Members() {
-  const {setLoading} = useLoader();
-  
   const [open, setOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
-  const members = useCollection('members', {setLoading});
-  const plans = useCollection('plans', {setLoading});
+  const members = useCollection('members');
+  const plans = useCollection('plans');
   const memberRef = doc(collection(db, 'members')); 
   const payRef = doc(collection(db, 'payment')); 
 
-  // Setting up the Loader
-  const isLoading = members.length && plans.length;
-  setLoading(!isLoading);
-  
+  // Setting up the loader
+  if(!members.length) return <FullPageLoading />
+   
   /* ----------  ADD MEMBER  ---------- */
   const onAdd = async (data) => {
     if (!data.planId) return alert('Please choose a plan');

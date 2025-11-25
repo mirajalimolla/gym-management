@@ -1,6 +1,7 @@
 // src/pages/Attendance.jsx
 import { useState } from 'react';
 import { useCollection } from '../hooks/useCollection';
+import FullPageLoading from '../components/FullPageLoading';
 import { doc, updateDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../assets/firebase';
 
@@ -18,6 +19,9 @@ export default function Attendance() {
             attendance: arrayUnion(new Date().toISOString()),
         });
     };
+
+    // Setting up the loading
+    if(!members.length) return <FullPageLoading />;
 
     return (
         <div>

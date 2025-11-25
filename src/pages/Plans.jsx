@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useCollection } from '../hooks/useCollection';
 import { collection, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import FullPageLoading from '../components/FullPageLoading';
 import { db } from '../assets/firebase';
 import Modal from '../components/Modal';
 import { useForm } from 'react-hook-form';
@@ -10,6 +11,10 @@ export default function Plans() {
   const plans = useCollection('plans');
   const [open, setOpen] = useState(false);
   const { register, handleSubmit, reset } = useForm();
+  let loader = false;
+
+  // Setting up the Loading
+  if(!plans.length) return <FullPageLoading />;
 
   const onAdd = async (d) => {
     await addDoc(collection(db, 'plans'), d);
